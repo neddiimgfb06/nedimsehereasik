@@ -58,7 +58,7 @@
 </head>
 <body>
   <div class="container">
-    <h1>barisalim mi hanimefendi?</h1>
+    <h1>Aşkım, barıştık mı?</h1>
     <div class="buttons">
       <button class="yes" onclick="yesClicked()">Evet</button>
       <button class="no" onclick="moveButton(this)">Hayır</button>
@@ -66,6 +66,9 @@
     <p id="love-text"></p>
     <img id="love-img" src="arkaplan.jpg" alt="Aşk Fotoğrafımız">
   </div>
+
+  <!-- Ses dosyası -->
+  <audio id="no-sound" src="hayir.mp3" preload="auto"></audio>
 
   <script>
     function yesClicked() {
@@ -79,6 +82,10 @@
       button.style.position = 'absolute';
       button.style.left = `${x}px`;
       button.style.top = `${y}px`;
+
+      const sound = document.getElementById('no-sound');
+      sound.currentTime = 0;
+      sound.play();
     }
   </script>
 </body>

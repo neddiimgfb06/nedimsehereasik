@@ -3,6 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <title>Barıştık mı aşkım?</title>
+
+  <!-- Parti efektleri için kütüphane -->
+  <script src="https://cdn.jsdelivr.net/npm/party-js@latest/bundle/party.min.js"></script>
+
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -12,6 +16,7 @@
       align-items: center;
       height: 100vh;
       margin: 0;
+      overflow: hidden;
     }
 
     .container {
@@ -54,6 +59,17 @@
       border-radius: 10px;
       box-shadow: 0 4px 12px rgba(0,0,0,0.2);
     }
+
+    @keyframes floatUp {
+      0% {
+        transform: translateY(0);
+        opacity: 0.8;
+      }
+      100% {
+        transform: translateY(-150px);
+        opacity: 0;
+      }
+    }
   </style>
 </head>
 <body>
@@ -67,18 +83,48 @@
     <img id="love-img" src="arkaplan.jpg" alt="Aşk Fotoğrafımız">
   </div>
 
-  <!-- Ses dosyası -->
+  <!-- Hayır sesi -->
   <audio id="no-sound" src="hayir.mp3" preload="auto"></audio>
 
   <script>
     function yesClicked() {
       document.getElementById('love-text').innerText = "Seni çooook seviyorum 💖";
       document.getElementById('love-img').style.display = "block";
+
+      const yesButton = document.querySelector('.yes');
+
+      // Konfeti patlat
+      party.confetti(yesButton, {
+        count: 100,
+        spread: 70,
+      });
+
+      // Kalp sparkles
+      party.sparkles(yesButton, {
+        count: 30,
+        color: party.Color.fromHex("#ff4d6d")
+      });
+
+      // Uçan kalpler
+      for (let i = 0; i < 10; i++) {
+        setTimeout(() => {
+          const heart = document.createElement("div");
+          heart.innerText = "💖";
+          heart.style.position = "fixed";
+          heart.style.left = Math.random() * window.innerWidth + "px";
+          heart.style.top = Math.random() * window.innerHeight + "px";
+          heart.style.fontSize = "30px";
+          heart.style.opacity = "0.8";
+          heart.style.animation = "floatUp 2s ease-out forwards";
+          document.body.appendChild(heart);
+          setTimeout(() => heart.remove(), 2000);
+        }, i * 150);
+      }
     }
 
     function moveButton(button) {
-      const x = Math.floor(Math.random() * 300);
-      const y = Math.floor(Math.random() * 300);
+      const x = Math.floor(Math.random() * (window.innerWidth - 100));
+      const y = Math.floor(Math.random() * (window.innerHeight - 100));
       button.style.position = 'absolute';
       button.style.left = `${x}px`;
       button.style.top = `${y}px`;

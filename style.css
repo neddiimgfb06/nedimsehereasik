@@ -1,0 +1,63 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f3f4f6;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.container {
+    text-align: center;
+    background-color: white;
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    font-size: 24px;
+    color: #333;
+}
+
+.buttons {
+    margin-top: 20px;
+}
+
+button {
+    font-size: 18px;
+    padding: 10px 20px;
+    margin: 10px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+button#yesButton {
+    background-color: #4CAF50;
+    color: white;
+}
+
+button#noButton {
+    background-color: #f44336;
+    color: white;
+}
+
+#message {
+    margin-top: 20px;
+    font-size: 20px;
+    color: #555;
+}
+body {
+    font-family: Arial, sans-serif;
+    background-image: C:\Users\AKPINAR\Desktop\barıstık mı\arkaplan.jpg , ('arkaplan'); /* Fotoğrafın adı ve yolu */
+    background-size: cover; /* Fotoğrafın tam ekranda görünmesini sağlar */
+    background-position: center; /* Fotoğrafı ortalar */
+    background-repeat: no-repeat; /* Fotoğrafın tekrarlanmasını engeller */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}

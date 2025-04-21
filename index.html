@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <title>Barıştık mı aşkım?</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f8f9fa;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .container {
+      text-align: center;
+      background: white;
+      padding: 40px;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    }
+
+    .buttons {
+      margin-top: 20px;
+    }
+
+    button {
+      font-size: 18px;
+      padding: 10px 20px;
+      margin: 0 15px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .yes {
+      background-color: #28a745;
+      color: white;
+    }
+
+    .no {
+      background-color: #dc3545;
+      color: white;
+      position: relative;
+    }
+
+    #love-img {
+      margin-top: 30px;
+      display: none;
+      width: 300px;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>barisalim mi hanimefendi?</h1>
+    <div class="buttons">
+      <button class="yes" onclick="yesClicked()">Evet</button>
+      <button class="no" onclick="moveButton(this)">Hayır</button>
+    </div>
+    <p id="love-text"></p>
+    <img id="love-img" src="arkaplan.jpg" alt="Aşk Fotoğrafımız">
+  </div>
+
+  <script>
+    function yesClicked() {
+      document.getElementById('love-text').innerText = "Seni çooook seviyorum 💖";
+      document.getElementById('love-img').style.display = "block";
+    }
+
+    function moveButton(button) {
+      const x = Math.floor(Math.random() * 300);
+      const y = Math.floor(Math.random() * 300);
+      button.style.position = 'absolute';
+      button.style.left = `${x}px`;
+      button.style.top = `${y}px`;
+    }
+  </script>
+</body>
+</html>
